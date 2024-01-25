@@ -6,11 +6,7 @@
 
 - name: Install packages
   ansible.builtin.shell:
-    cmd: yay -S --needed --noconfirm --asexplicit {{ packages }}
+    cmd: "sudo -u {{ username }} yay -S --needed --noconfirm --asexplicit {{ packages | join(' ') }}"
   register: installations
   become: true
   become_user: "{{ username }}"
-
-- name: Packages installation report
-  debug: msg="{{ installations.stdout }}"
-
