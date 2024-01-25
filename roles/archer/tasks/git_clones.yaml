@@ -1,7 +1,7 @@
 - name: Check which respositories already exists
   ansible.builtin.stat:
     path: "{{ item.dest }}"
-  loop: "{{ github_clones }}"
+  loop: "{{ git_clones }}"
   register: destination
   become: true
   become_user: "{{ username }}"

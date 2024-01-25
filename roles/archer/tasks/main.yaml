@@ -1,15 +1,19 @@
 - name: Configure Pacman
-  import_tasks: configure_pacman.yaml
+  import_tasks: pacman.yaml
 
-- name: Install AUR Helper
-  import_tasks: install_aur_helper.yaml
+- name: Install YAY (AUR Helper)
+  import_tasks: yay.yaml
 
 - name: Install Packages
-  import_tasks: install_packages.yaml
+  import_tasks: packages.yaml
 
-- name: Clone Github Repositories
-  import_tasks: do_github_clones.yaml
+- name: Clone repositories
+  import_tasks: git_clones.yaml
 
-- name: Use dotfiles
-  import_tasks: use_dotfiles.yaml
+- name: Make use of dotfiles
+  import_tasks: dotfiles.yaml
 
+- name: Change default user shell
+  ansible.builtin.user:
+    name: "{{ username }}"
+    shell: /bin/zsh
