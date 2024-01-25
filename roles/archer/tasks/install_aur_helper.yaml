@@ -1,0 +1,24 @@
+
+- name: Check if yay folder exists
+  stat:
+    path: $HOME/yay
+  register: yay_folder
+  become: true
+  become_user: "{{ username }}"
+
+- name: Clone Yay
+  ansible.builtin.git: 
+    repo: https://aur.archlinux.org/yay.git
+    dest: $HOME/yay
+  when: not yay_folder.stat.exists
+  become: true
+  become_user: "{{ username }}"
+
+- name: Install Yay
+  ansible.builtin.shell: 
+    cmd: |
+      makepkg -si --noconfirm
+    chdir: $HOME/yay
+  when: not yay_folder.stat.exists
+  become: true
+  become_user: "{{ username }}"

@@ -1,0 +1,15 @@
+- name: Configure Pacman
+  import_tasks: configure_pacman.yaml
+
+- name: Install AUR Helper
+  import_tasks: install_aur_helper.yaml
+
+- name: Install Packages
+  import_tasks: install_packages.yaml
+
+- name: Clone Github Repositories
+  import_tasks: do_github_clones.yaml
+
+- name: Use dotfiles
+  import_tasks: dotfiles.yaml
+

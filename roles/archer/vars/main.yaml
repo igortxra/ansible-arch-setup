@@ -1,0 +1,132 @@
+username: igortxra
+
+dotfiles:
+    url: https://github.com/igortxra/dotfiles-clean.git
+
+github_clones:
+    - name: Zsh Autosuggestions
+      repo: https://github.com/zsh-users/zsh-autosuggestions 
+      dest: "/home/{{ username }}/.zsh/zsh-autosuggestions"
+
+    - name: Catppuccin Theme For qutebrowser
+      repo: https://github.com/catppuccin/qutebrowser.git 
+      dest: "/home/{{ username }}/.config/qutebrowser/catppuccin"
+
+    - name:  Catppuccin Wallpapers
+      repo: https://github.com/bsimic/catppuccin_wallpapers.git 
+      dest: "/home/{{ username }}/Pictures/Wallpapers/catppuccin_wallpapers"
+
+    - name:  AstroNvim
+      repo: https://github.com/AstroNvim/AstroNvim 
+      dest: "/home/{{ username }}/.config/nvim"
+
+    - name:  Testing
+      repo: https://github.com/igortxra/udev-rules.git
+      dest: "/home/{{ username }}/ansible/udev-rules"
+
+packages:
+
+    # Essencial
+    - vim
+    - git
+
+    # Screen Configuration
+    - arandr
+    - autorandr
+
+    # Developer
+    - docker
+    - neovim
+    - github-cli
+    - asdf-vm
+    - kubectl
+    - kind
+    
+    # Wallpapers
+    - feh
+
+    # Screenshots
+    - flameshot
+
+    # Version Control
+    - git
+    - github-cli
+
+    # Network
+    - networkmanager
+
+
+    # Window Manager
+    - qtile
+
+    # Shell
+    - zsh
+    - zsh-theme-powerlevel10k
+    
+    # Terminal Emulator
+    - kitty
+
+    # Launcher
+    - rofi
+    - dmenu
+
+    # Compositor
+    - picom
+
+    # Browser
+    - qutebrowser
+    - google-chrome # AUR
+
+    # File Manager
+    - thunar
+    - ranger
+
+    # Notification
+    - dunst
+
+    # Themes
+    - lxappearance
+    - catppuccin-cursors-mocha # AUR
+    - catppuccin-gtk-theme-mocha # AUR
+    - dracula-icons-git # AUR
+
+    # Fonts
+    - ttf-iosevka-nerd
+    - ttf-symbola # AUR
+    - noto-fonts-cjk
+    - noto-fonts-emoji
+    - xorg-fonts-100dpi
+    - xorg-fonts-75dpi
+
+    # Clipboard
+    - xclip
+    - rofi-greenclip # AUR
+
+    # Automations
+    - ansible
+    - ansible-completion-git
+
+    # Utils
+    - batify # AUR
+    - htop
+    - fzf
+    - less
+    - man-db
+    - unzip
+    - ripgrep
+    - archey3
+    - numlockx
+    - alsa-utils
+    - nodejs
+    - npm
+    - python-dbus-next
+    - python-psutil
+    - zram-generator
+
+    # Required to run AppImages
+    - fuse2
+
+    # Personal Needs
+    - discord
+    - spotify-launcher
+

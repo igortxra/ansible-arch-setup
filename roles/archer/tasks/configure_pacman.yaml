@@ -1,0 +1,13 @@
+
+- name: Enable pacman colourised output and parallel downloads
+  replace:
+    path: /etc/pacman.conf
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+  with_items:
+    - { regexp: '^#Color$', replace: 'Color' }
+    - { regexp: '^#ParallelDownloads', replace: 'ParallelDownloads' }
+
+- name: Run the equivalent of "pacman -Sy" as a separate step
+  community.general.pacman:
+    update_cache: true

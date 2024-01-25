@@ -1,0 +1,16 @@
+- name: Check which respositories already exists
+  ansible.builtin.stat:
+    path: "{{ item.dest }}"
+  loop: "{{ github_clones }}"
+  register: destination
+  become: true
+  become_user: "{{ username }}"
+
+- name: Clone repositories if they do not exists
+  ansible.builtin.git:
+    repo: "{{ item.item.repo }}"
+    dest: "{{ item.item.dest }}"
+  loop: "{{ destination.results }}"
+  when: not item.stat.exists 
+  become: true
+  become_user: "{{ username }}"

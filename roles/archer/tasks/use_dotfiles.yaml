@@ -1,0 +1,27 @@
+
+- name: Create a .gitignore to avoid problems in dotfiles clone
+  ansible.builtin.shell: 
+    cmd: echo ".dotfiles" >> .gitignore
+    chdir: "/home/{{ username }}"
+    creates: .gitignore
+  become: true
+  become_user: "{{ username }}"
+
+- name: Clone user dotfiles
+  ansible.builtin.git: 
+    bare: true
+    repo: "{{ dotfiles.url }}"
+    dest: "/home/{{ username }}/.dotfiles"
+    update: no
+    force: true
+  become: true
+  become_user: "{{ username }}"
+
+- name: Checkout dotfiles into $HOME
+  ansible.builtin.shell:
+    cmd: |
+      /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
+      /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout -f
+    executable: /usr/bin/bash
+  become: true
+  become_user: "{{ username }}"

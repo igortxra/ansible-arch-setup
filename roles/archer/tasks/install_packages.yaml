@@ -1,0 +1,16 @@
+- name: Update Yay
+  ansible.builtin.shell:
+    cmd: yay -Sy
+  become: true
+  become_user: "{{ username }}"
+
+- name: Install packages
+  ansible.builtin.shell:
+    cmd: yay -S --needed --noconfirm --asexplicit {{ packages }}
+  register: installations
+  become: true
+  become_user: "{{ username }}"
+
+- name: Packages installation report
+  debug: msg="{{ installations.stdout }}"
+
