@@ -10,6 +10,8 @@
   ansible.builtin.git:
     repo: "{{ item.item.repo }}"
     dest: "{{ item.item.dest }}"
+    depth: "{{ item.item.depth }}"
+    version: "{{ item.item.version }}"
   loop: "{{ destination.results }}"
   when: not item.stat.exists 
   become: true

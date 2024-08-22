@@ -6,19 +6,27 @@ dotfiles:
 git_clones:
     - name: Zsh Autosuggestions
       repo: https://github.com/zsh-users/zsh-autosuggestions 
+      depth: 1
       dest: "/home/{{ username }}/.zsh/zsh-autosuggestions"
-
-    - name: Catppuccin Theme For qutebrowser
-      repo: https://github.com/catppuccin/qutebrowser.git 
-      dest: "/home/{{ username }}/.config/qutebrowser/catppuccin"
-
-    - name:  Catppuccin Wallpapers
-      repo: https://github.com/bsimic/catppuccin_wallpapers.git 
-      dest: "/home/{{ username }}/Pictures/Wallpapers/catppuccin_wallpapers"
+      version: HEAD
 
     - name:  AstroNvim
-      repo: https://github.com/AstroNvim/AstroNvim 
+      repo: https://github.com/AstroNvim/template
+      depth: 1
       dest: "/home/{{ username }}/.config/nvim"
+      version: HEAD
+
+    - name:  PowerLevel10K
+      repo: https://github.com/romkatv/powerlevel10k.git
+      depth: 1
+      dest: "/home/{{ username }}/powerlevel10k"
+      version: HEAD
+
+    - name:  asdf-vm
+      repo: https://github.com/asdf-vm/asdf.git
+      depth: 1
+      dest: "/home/{{ username }}/.asdf"
+      version: v0.14.1
 
 packages:
 
@@ -45,7 +53,6 @@ packages:
 
     # Shell
     - zsh
-    - zsh-theme-powerlevel10k
     
     # Terminal Emulator
     - kitty
