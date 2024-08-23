@@ -1,4 +1,4 @@
-username: igortxra
+username: igorcromai
 
 dotfiles:
     url: https://github.com/igortxra/dotfiles-clean.git
@@ -11,7 +11,7 @@ git_clones:
       version: HEAD
 
     - name:  AstroNvim
-      repo: https://github.com/AstroNvim/template
+      repo: https://github.com/igortxra/nvim
       depth: 1
       dest: "/home/{{ username }}/.config/nvim"
       version: HEAD
