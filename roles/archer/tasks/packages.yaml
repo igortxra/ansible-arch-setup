@@ -5,8 +5,7 @@
   become_user: "{{ username }}"
 
 - name: Install packages
-  ansible.builtin.shell:
-    cmd: "sudo -u {{ username }} yay -S --needed --noconfirm --asexplicit {{ packages | join(' ') }}"
-  register: installations
+  shell: "yay -S --needed --noconfirm --asexplicit {{ item }}"
+  with_items: "{{ packages }}"
   become: true
   become_user: "{{ username }}"
