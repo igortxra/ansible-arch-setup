@@ -7,7 +7,7 @@ git_clones:
   - name: Zsh Autosuggestions
     repo: https://github.com/zsh-users/zsh-autosuggestions
     depth: 1
-    dest: "/home/{{ username }}/.zsh/zsh-autosuggestions"
+    dest: "/home/{{ username }}/.config/zsh/zsh-autosuggestions"
     version: HEAD
 
   - name: AstroNvim
@@ -19,7 +19,7 @@ git_clones:
   - name: PowerLevel10K
     repo: https://github.com/romkatv/powerlevel10k.git
     depth: 1
-    dest: "/home/{{ username }}/powerlevel10k"
+    dest: "/home/{{ username }}/.config/zsh/powerlevel10k"
     version: HEAD
 
   - name: asdf-vm
@@ -28,8 +28,20 @@ git_clones:
     dest: "/home/{{ username }}/.asdf"
     version: v0.14.1
 
+  - name: Wallpapers
+    repo: https://github.com/dracula/wallpaper.git
+    depth: 1
+    dest: "/home/{{ username }}/Wallpapers/dracula"
+    version: HEAD
+
+  - name: Dracula theme for Qutebrowser
+    repo: https://github.com/dracula/qutebrowser-dracula-theme.git
+    depth: 1
+    dest: "/home/{{ username }}/.config/qutebrowser/dracula"
+    version: HEAD
+
 packages:
-  # Essencial
+  # Essential
   - vim
   - git
 
@@ -76,9 +88,9 @@ packages:
 
   # Themes
   - lxappearance
-  - catppuccin-cursors-mocha # AUR
+  - dracula-gtk-theme # AUR
   - dracula-icons-git # AUR
-  - everforest-gtk-theme-git # AUR
+  - dracula-cursors-git # AUR
 
   # Fonts
   - ttf-iosevka-nerd
