@@ -77,8 +77,8 @@ packages:
   # Themes
   - lxappearance
   - catppuccin-cursors-mocha # AUR
-  - catppuccin-gtk-theme-mocha # AUR
   - dracula-icons-git # AUR
+  - everforest-gtk-theme-git # AUR
 
   # Fonts
   - ttf-iosevka-nerd
