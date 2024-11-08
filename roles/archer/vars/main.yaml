@@ -1,7 +1,7 @@
 username: igorcromai
 
 dotfiles:
-  url: https://github.com/igortxra/dotfiles-clean.git
+  url: https://github.com/igortxra/dotfiles.git
 
 git_clones:
   - name: Zsh Autosuggestions
