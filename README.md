@@ -6,39 +6,39 @@
 
 This repository contains an [ansible](https://docs.ansible.com/) playbook to setup my arch linux configuration.
 
+👉 Take a look at my [dotfiles](https://github.com/igortxra/dotfiles.git)
+
+
 ## How to use
-### Step 1: Arch Linux base instalation
+### Step 1: Install a (almost) minimal Arch Linux system
 - Install archlinux using `archinstall` script
   - Choose xorg profile that install xorg and graphic drivers
-  - As additional packages put: `vim` and `git`
-
-### Step 2: Install ansible
-```bash
-  sudo pacman -Sy ansible
-```
+  - As additional packages put: `vim`, `git` and `ansible`
+  - Make sure you created your user
+- Reboot and log in
  
-### Step 3: Clone this repository
+### Step 2: Clone this repository
 ```bash
-  git clone http://github.com/igortxra/ansible-arch-setup.git
+  git clone http://github.com/igortxra/ansible-arch-setup.git $HOME/setup
 ```
 ### Step 4: Custom variables file
-Modify variables file  `roles/archer/tasks/vars/main.yaml` to adapt as you want.
+You can modify some installation parameters in `roles/archer/tasks/vars/main.yaml`;
+
+⚠️ **Update at least the username**
 
 | **Variable**      | **Description**                                      |
 |-------------------|------------------------------------------------------|
 | username          | Your username (obviously)                            |
-| dotfiles.url      | Link to your dotfiles repository                     |
+| dotfiles.url      | Dotfiles repository to use                           |
 | git_clones        | Some simple clones you may want to do                |
 | packages          | All packages you want to install (including AUR packages) |
 
 ### Step 5: Run ansible playbook
 ```bash
-   cd ansible-arch-setup/
+   cd $HOME/setup
    
-   # make play is a Makefile shortcut that runs the ansible-playbook   
-   make play
+   # Runs the ansible-playbook   
+   ansible-playbook -K roles/main.yaml -vvv
 ```
-### Step 6: Quit and Login
-Example of my [dotfiles](https://github.com/igortxra/dotfiles-clean.git)
-![2024-01-25_17-59](https://github.com/igortxra/ansible-arch-setup/assets/91085060/6f1c0358-d82b-4106-918e-b15269a12633)
 
+### Step 6: Quit and Login
