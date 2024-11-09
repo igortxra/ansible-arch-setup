@@ -1,4 +1,4 @@
-username: igorcromai
+username: igortxra
 
 dotfiles:
   url: https://github.com/igortxra/dotfiles.git
@@ -81,6 +81,10 @@ packages:
 
   # File Manager
   - thunar
+  - thunar-volman
+  - gvfs
+  - tumbler
+  - ffmpegthumbnailer
   - ranger
 
   # Notification
