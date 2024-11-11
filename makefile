@@ -1,2 +1,2 @@
 play: 
-	ansible-playbook -K roles/main.yaml
+	ansible-playbook -K roles/main.yaml -vvv
