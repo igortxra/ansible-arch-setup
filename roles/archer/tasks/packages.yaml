@@ -5,7 +5,6 @@
   become_user: "{{ username }}"
 
 - name: Install packages
-  shell: "yay -S --needed --noconfirm --asexplicit {{ item }}"
-  with_items: "{{ packages }}"
+  shell: "yay -S --needed --noconfirm --asexplicit --sudoloop --batchinstall {{ packages | join(' ') }}"
   become: true
   become_user: "{{ username }}"
