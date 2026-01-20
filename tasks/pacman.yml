@@ -1,0 +1,25 @@
+---
+- name: Enable Color in pacman.conf
+  become: true
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '^#?Color'
+    line: 'Color'
+
+- name: Enable ParallelDownloads in pacman.conf
+  become: true
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '^#?ParallelDownloads'
+    line: 'ParallelDownloads = 5'
+
+- name: Initialize pacman keyring
+  become: true
+  command: pacman-key --init
+  args:
+    creates: /etc/pacman.d/gnupg
+
+- name: Populate Arch Linux keyring
+  become: true
+  command: pacman-key --populate archlinux
+

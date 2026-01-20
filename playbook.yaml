@@ -1,0 +1,44 @@
+---
+- name: Bootstrap local machine
+  hosts: localhost
+  connection: local
+  become: true
+
+  vars_files: vars.yaml
+
+  tasks:
+    - name: Pacman setup
+      import_tasks: tasks/pacman.yml
+      tags: pacman
+
+    - name: Yay setup
+      import_tasks: tasks/yay.yml
+      tags: yay
+
+    - name: Install packages
+      import_tasks: tasks/packages.yml
+      tags: packages
+
+    - name: Dotfiles pull
+      import_tasks: tasks/dotfiles.yml
+      tags: dotfiles
+
+    - name: Customize neovim
+      import_tasks: tasks/neovim.yml
+      tags: neovim
+
+    - name: Set default shell
+      import_tasks: tasks/shell.yml
+      tags: shell
+
+    - name: Configure Screenlocker
+      import_tasks: tasks/screenlocker.yml
+      tags: screenlocker
+
+    - name: Set wallpaper
+      import_tasks: tasks/wallpaper.yml
+      tags: wallpaper
+
+    - name: Enable systemd services
+      import_tasks: tasks/services.yml
+      tags: services

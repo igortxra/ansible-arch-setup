@@ -1,0 +1,13 @@
+---
+- name: Install official packages
+  community.general.pacman:
+    name: "{{ packages.official }}"
+    state: present
+  become: true
+
+- name: Install AUR packages
+  kewlfft.aur.aur:
+    name: "{{ packages.aur }}"
+    use: yay
+  become: true
+  become_user: "{{ username }}"

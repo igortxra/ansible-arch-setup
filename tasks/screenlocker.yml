@@ -1,0 +1,11 @@
+---
+- name: Enable betterlockscreen system service
+  become: true
+  command: systemctl enable betterlockscreen@{{ username }}
+  changed_when: false
+
+- name: Set lock screen image
+  become: false
+  command: >
+    betterlockscreen -u /home/{{ username }}/Wallpapers/default.jpg
+  changed_when: false

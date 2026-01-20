@@ -1,0 +1,5 @@
+---
+- name: Enable keyboard auto remap service (user)
+  become: false
+  command: systemctl --user enable keyboard-monitor.service
+  changed_when: false

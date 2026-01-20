@@ -1,0 +1,39 @@
+---
+- name: Define dotfiles variables
+  become: false
+  set_fact:
+    dotfiles_dir: "/home/{{ username }}/.dotfiles"
+    dotfiles_worktree: "/home/{{ username }}"
+
+- name: Clone dotfiles bare repository
+  become: false
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_dir }}"
+    bare: true
+    update: no
+
+- name: Hide untracked files in dotfiles repo
+  become: false
+  command: >
+    git --git-dir={{ dotfiles_dir }} --work-tree={{ dotfiles_worktree }}
+    config --local status.showUntrackedFiles no
+  changed_when: false
+
+- name: Checkout dotfiles into HOME
+  become: false
+  command: >
+    git --git-dir={{ dotfiles_dir }} --work-tree={{ dotfiles_worktree }}
+    checkout -f
+  register: dotfiles_checkout
+  failed_when: false
+
+- name: Set dotfiles list alias
+  become: false
+  command: >
+    git --git-dir={{ dotfiles_dir }}
+        --work-tree={{ dotfiles_worktree }}
+        config --local alias.list
+        'ls-tree --full-tree -r --name-only HEAD'
+  changed_when: false
+

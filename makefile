@@ -1,2 +1,3 @@
 play: 
-	ansible-playbook -K roles/main.yaml -vvv
+	ansible-galaxy collection install kewlfft.aur
+	ansible-playbook -K playbook.yaml

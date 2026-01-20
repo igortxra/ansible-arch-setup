@@ -1,0 +1,158 @@
+---
+username: igortxra
+dotfiles_repo: https://github.com/igortxra/dotfiles.git
+neovim_repo: https://github.com/igortxra/kickstart.nvim
+pacman_parallel_downloads: 5
+packages:
+  official:
+    # Basic
+    - git
+    # - vim
+    # - neovim
+    # - man-db
+    #
+    # # Window Manager:
+    # - qtile
+    # - python-dbus-fast
+    # - python-psutil
+    #
+    # # Terminal Emulator:
+    # - kitty
+    #
+    # # Launcher
+    # - rofi
+    #
+    # # Note Taking
+    # - obsidian
+    #
+    # # Browser
+    # - qutebrowser
+    # - firefox
+    #
+    # # Notifications
+    # - dunst
+    #
+    # # File Management
+    # - ranger
+    # - dragon-drop-git
+    # - rsync
+    # - sshfs
+    # - thunar
+    # - thunar-volman
+    # - thunar-archive-plugin
+    # - zip
+    # - unzip
+    # - xarchiver
+    # - gvfs
+    # - tumbler
+    # - ffmpegthumbnailer
+    # - xdg-user-dirs
+    # - xdg-desktop-portal
+    # - xdg-desktop-portal-gtk
+    #
+    # - feh
+    #
+    # # Themes and appearance
+    # - lxappearance
+    #
+    # # Font
+    # - ttf-iosevka-nerd
+    # - noto-fonts-cjk
+    # - noto-fonts-emoji
+    # - xorg-fonts-100dpi
+    # - xorg-fonts-75dpi
+    #
+    # # Clipboard
+    # - xclip
+    #
+    # # Screenshot
+    # - flameshot
+    #
+    # # Display
+    # - arandr
+    # - autorandr
+    # - brightnessctl
+    #
+    # # Audio
+    # - playerctl
+    # - alsa-utils
+    # - pamixer
+    #
+    # # Utility
+    # - galculator
+    #
+    # # CLI
+    # - fzf
+    # - zoxide
+    # - less
+    # - tealdeer
+    # - git-delta
+    # - wget
+    # - eza
+    # - bat
+    # - ripgrep
+    # - jq
+    # - nmap
+    # - btop
+    # - exfat-utils
+    # - numlockx
+    # - zram-generator
+    # - xdotool
+    #
+    # # Language Tools
+    # - npm
+    # - python-uv
+    # - python-pyudev
+    #
+    # # Media Player
+    # - mpv
+    #
+    # # Github
+    # - github-cli
+    #
+    # # Containers
+    # - docker
+    # - docker-buildx
+    # - docker-compose
+    #
+    # # VMs
+    # - virtualbox
+    # - virtualbox-host-modules-arch
+    #
+    # # Bluetooth
+    # - bluez
+    # - bluez-utils
+    #
+    # # AppImage
+    # - fuse2
+    #
+    # # Image Editor
+    # - gimp
+    #
+    # # Office
+    # - libreoffice-fresh-br
+    #
+  aur:
+    # # Clipboard
+    # - rofi-greenclip
+    #
+    # # Others
+    # - batify
+    #
+    # # Screen Locker
+    # - betterlockscreen-git
+    # - i3lock-color
+    #
+    # # Themes and Appearance
+    # - picom-git
+    # - tela-circle-icon-theme-dracula
+    # - dracula-cursors-git
+    # - dracula-gtk-theme-full
+    # - python-oywal16
+    #
+    # Package Management
+    - pacleaner
+
+    # Music player
+    #- spotify-launcher
+    #- spotblock-git

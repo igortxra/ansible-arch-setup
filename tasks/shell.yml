@@ -1,0 +1,5 @@
+---
+- name: Change default shell to zsh
+  become: true
+  command: chsh {{ username }} --shell /bin/zsh
+  changed_when: false

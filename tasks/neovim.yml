@@ -1,0 +1,22 @@
+---
+- name: Remove nvim_bkp folder if present
+  become: false
+  command: >
+    rm -rf /home/{{ username }}/.config/nvim_bkp
+  args:
+    removes: "/home/{{ username }}/.config/nvim_bkp"
+
+- name: Backup existing Neovim config if present
+  become: false
+  command: >
+    mv /home/{{ username }}/.config/nvim
+       /home/{{ username }}/.config/nvim_bkp
+  args:
+    removes: "/home/{{ username }}/.config/nvim"
+
+- name: Clone Neovim config
+  become: false
+  git:
+    repo: "{{ neovim_repo }}"
+    dest: "/home/{{ username }}/.config/nvim"
+    version: HEAD

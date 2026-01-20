@@ -1,0 +1,23 @@
+---
+- name: Define yay variables
+  become: false
+  set_fact:
+    yay_dir: "/home/{{ username }}/yay"
+    yay_repo: "https://aur.archlinux.org/yay.git"
+
+- name: Clone yay repository
+  git:
+    repo: "{{ yay_repo }}"
+    dest: "{{ yay_dir }}"
+    version: master
+    update: false
+
+- name: Build and install yay
+  command: makepkg -si --noconfirm --noprogressbar
+  args:
+    chdir: "{{ yay_dir }}"
+    creates: /usr/bin/yay
+
+- name: Sync yay database
+  command: yay -Sy
+  changed_when: false
