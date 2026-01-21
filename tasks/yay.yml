@@ -1,37 +1,30 @@
 ---
-- name: Create the `aur_builder` user
-  ansible.builtin.user:
-    name: aur_builder
-    create_home: yes
-    group: wheel
+- name: Ensure yay build directory exists (as user)
+  file:
+    path: "/home/{{ arch_user }}/builds"
+    state: directory
+    mode: "0755"
+    owner: "{{ username }}"
+    group: "{{ username }}"
 
-- name: Allow the `aur_builder` user to run `sudo pacman` without a password
-  ansible.builtin.lineinfile:
-    path: /etc/sudoers.d/11-install-aur_builder
-    line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
-    create: yes
-    mode: 0644
-    validate: "visudo -cf %s"
-
-- name: Define yay variables
-  become: false
-  set_fact:
-    yay_dir: "/home/{{ username }}/yay"
-    yay_repo: "https://aur.archlinux.org/yay.git"
-
-- name: Clone yay repository
+- name: Clone yay repository (as user)
   git:
-    repo: "{{ yay_repo }}"
-    dest: "{{ yay_dir }}"
+    repo: https://aur.archlinux.org/yay.git
+    dest: "/home/{{ username }}/builds/yay"
     version: master
-    update: false
+    force: yes
+    update: yes
+  become: false
+  run_as: "{{ arch_user }}"
 
-- name: Build and install yay
-  command: makepkg -si --noconfirm --noprogressbar
+- name: Build and install yay (as user)
+  command: makepkg -si --noconfirm
   args:
-    chdir: "{{ yay_dir }}"
-    creates: /usr/bin/yay
+    chdir: "/home/{{ username }}/builds/yay"
+  become: false
+  run_as: "{{ username }}"
 
 - name: Sync yay database
   command: yay -Sy
   changed_when: false
+  become: true
