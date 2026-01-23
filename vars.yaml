@@ -11,6 +11,9 @@ packages:
     - neovim
     - man-db
 
+    # Bash
+    - zsh
+
     # Window Manager:
     - qtile
     - python-dbus-fast
@@ -34,7 +37,6 @@ packages:
 
     # File Management
     - ranger
-    - dragon-drop-git
     - rsync
     - sshfs
     - thunar
@@ -133,6 +135,10 @@ packages:
     # - libreoffice-fresh-br
 
   aur:
+    
+    # File Management
+    - dragon-drop-git
+
     # Clipboard
     - rofi-greenclip
 
@@ -148,7 +154,7 @@ packages:
     - tela-circle-icon-theme-dracula
     - dracula-cursors-git
     - dracula-gtk-theme-full
-    - python-oywal16
+    - python-pywal16
 
     # Package Management
     - pacleaner
