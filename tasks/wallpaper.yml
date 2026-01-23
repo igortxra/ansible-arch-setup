@@ -3,3 +3,4 @@
   become: false
   command: "/home/{{ username }}/.local/bin/WALLPAPER_SET"
   changed_when: false
+  ignore_errors: true
