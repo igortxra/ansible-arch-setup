@@ -135,7 +135,6 @@ packages:
     # - libreoffice-fresh-br
 
   aur:
-    
     # File Management
     - dragon-drop-git
 
@@ -154,6 +153,8 @@ packages:
     - tela-circle-icon-theme-dracula
     - dracula-cursors-git
     - dracula-gtk-theme-full
+    - rose-pine-cursor
+    - rose-pine-gtk-theme
     - python-pywal16
 
     # Package Management

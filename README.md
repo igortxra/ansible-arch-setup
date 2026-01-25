@@ -8,13 +8,12 @@ This repository contains an [ansible](https://docs.ansible.com/) playbook to set
 
 👉 Take a look at my [dotfiles](https://github.com/igortxra/dotfiles.git)
 
-
 ## How to use
 ### Step 1: Install a (almost) minimal Arch Linux system
 - Install archlinux using `archinstall` script
   - Choose xorg profile that install xorg and graphic drivers
-  - As additional packages put: `vim`, `git` and `ansible`
   - Make sure you created your user
+  - As additional packages put: `vim`, `git`, `make`, `base-devel` and `ansible`
 - Reboot and log in
  
 ### Step 2: Clone this repository
@@ -22,23 +21,13 @@ This repository contains an [ansible](https://docs.ansible.com/) playbook to set
   git clone http://github.com/igortxra/ansible-arch-setup.git $HOME/setup
 ```
 ### Step 4: Custom variables file
-You can modify some installation parameters in `roles/archer/tasks/vars/main.yaml`;
+You can modify some installation parameters in `vars.yaml`;
 
-⚠️ **Update at least the username**
-
-| **Variable**      | **Description**                                      |
-|-------------------|------------------------------------------------------|
-| username          | Your username (obviously)                            |
-| dotfiles.url      | Dotfiles repository to use                           |
-| git_clones        | Some simple clones you may want to do                |
-| packages          | All packages you want to install (including AUR packages) |
 
 ### Step 5: Run ansible playbook
 ```bash
-   cd $HOME/setup
-   
-   # Runs the ansible-playbook   
-   ansible-playbook -K roles/main.yaml -vvv
+   # Runs the ansible-playbook from $HOME/setup
+   make play
 ```
 
-### Step 6: Quit and Login
+### Step 6: Reboot and Login
