@@ -35,10 +35,6 @@
       import_tasks: tasks/screenlocker.yml
       tags: screenlocker
 
-    - name: Set wallpaper
-      import_tasks: tasks/wallpaper.yml
-      tags: wallpaper
-
     - name: Enable systemd services
       import_tasks: tasks/services.yml
       tags: services
