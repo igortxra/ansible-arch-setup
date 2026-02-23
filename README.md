@@ -1,10 +1,10 @@
 # Ansible Arch Setup
 
+This repository contains an [ansible](https://docs.ansible.com/) playbook to setup my arch linux configuration.
+
 <img src="https://github.com/igortxra/ansible-arch-setup/assets/91085060/b82e4c7e-4c76-4f24-818e-3c1045c98576" width="100" height="100" />
 &nbsp
 <img src="https://github.com/igortxra/ansible-arch-setup/assets/91085060/175d515b-8bcc-4e66-9ae0-341e8280590f" width="100" height="100" />
-
-This repository contains an [ansible](https://docs.ansible.com/) playbook to setup my arch linux configuration.
 
 👉 Take a look at my [dotfiles](https://github.com/igortxra/dotfiles.git)
 
